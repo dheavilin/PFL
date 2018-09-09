@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PFLClient</title>
+    <base href="~/" />
+
+    <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+
+    <link rel="stylesheet" type="text/css" href="~/dist/node_modules/primeng/resources/themes/cupertino/theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/dist/node_modules/primeng/resources/primeng.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/dist/node_modules/primeicons/primeicons.css" />
+    <link rel="stylesheet" href="~/dist/node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/dist/primeflex/primeflex.css">
+    <link rel="stylesheet" href="~/dist/primeflex/primeflex.scss">
+</head>
+<body>
+    @RenderBody()
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

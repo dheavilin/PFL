@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PFL.client", "PFLClient\PFL.client.csproj", "{A3D4C170-2D74-4BF1-B8C7-F359200C4060}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PFL.Service", "PFL.Service\PFL.Service.csproj", "{0F97F24C-FE64-43B3-90CB-4FAD356E6D5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PFL.DAL", "PFL.DAL\PFL.DAL.csproj", "{EAEAC12D-D56F-4079-B9ED-DB7AA3D56A3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3D4C170-2D74-4BF1-B8C7-F359200C4060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D4C170-2D74-4BF1-B8C7-F359200C4060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D4C170-2D74-4BF1-B8C7-F359200C4060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D4C170-2D74-4BF1-B8C7-F359200C4060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F97F24C-FE64-43B3-90CB-4FAD356E6D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F97F24C-FE64-43B3-90CB-4FAD356E6D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F97F24C-FE64-43B3-90CB-4FAD356E6D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F97F24C-FE64-43B3-90CB-4FAD356E6D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAEAC12D-D56F-4079-B9ED-DB7AA3D56A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAEAC12D-D56F-4079-B9ED-DB7AA3D56A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAEAC12D-D56F-4079-B9ED-DB7AA3D56A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAEAC12D-D56F-4079-B9ED-DB7AA3D56A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2C13BB0-253A-4F1D-9ACF-2947768D33E6}
+	EndGlobalSection
+EndGlobal

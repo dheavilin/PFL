@@ -1,0 +1,339 @@
+﻿<div class="p-grid">
+    <div class="p-col-12 p-md-12 p-lg-12">
+        <hr style="width:100%" />
+    </div>
+</div>
+
+<div *ngIf="!products">Loading...</div>
+
+<p-table [value]="products.results.data" [paginator]="true" [rows]="10" *ngIf="products" selectionMode="single" [(selection)]="selectedProduct" (onRowSelect)="selectRow($event)" (onRowUnselect)="unselectRow($event)">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr [pSelectableRow]="product">
+            <td>{{ product.id }}</td>
+            <td>{{ product.productID }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<div class="p-grid" *ngIf="selectedProduct">
+    <div class="p-col-12 p-md-12 p-lg-12">
+        <hr style="width:100%" />
+    </div>
+</div>
+
+<p-fieldset *ngIf="selectedProduct">
+    <p-header>Product Details</p-header>
+    <div class="p-grid">
+        <div class="p-col-4">
+            <div class="p-grid">
+                <div class="p-col">
+                    <b>Name:</b> {{selectedProduct.name}}
+                </div>
+            </div>
+            <div class="p-grid">
+                <div class="p-col">
+                    <b>Description:</b> {{selectedProduct.description}}
+                </div>
+            </div>
+            <div class="p-grid">
+                <div class="p-col">
+                    <b>Minimum Order:</b> {{selectedProduct.quantityMinimum}}
+                </div>
+            </div>
+            <div class="p-grid">
+                <div class="p-col">
+                    <b>Maximum Order:</b> {{selectedProduct.quantityMaximum}}
+                </div>
+            </div>
+            <!--<div class="p-grid">
+                <div class="p-col">
+                    <b>Price:</b> {{selectedProduct.deliveredPrices[0].price}}
+                </div>
+            </div>-->
+        </div>
+        <div class="p-col-8" style="text-align:center">
+            <img [attr.alt]="selectedProduct.name" src="{{selectedProduct.imageURL}}">
+        </div>
+    </div>
+
+    <div class="p-grid" style="font-size:16px;padding:20px">
+        <div class="p-col">
+            <button class="btn btn-primary" role="button" type="button" (click)="buildOrder()"><span class="fa fa-plus" aria-hidden="true"></span> Build Order</button>
+        </div>
+    </div>
+</p-fieldset>
+
+<div class="p-grid" *ngIf="showOrderDetails">
+    <div class="p-col-12 p-md-12 p-lg-12">
+        <hr style="width:100%" />
+    </div>
+</div>
+
+<p-fieldset *ngIf="showOrderDetails">
+    <p-header> Build Order</p-header>
+    <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm" name="orderForm">
+
+        <div class="p-grid">
+            <p-fieldset class="p-col-12 p-md-8 p-lg-6">
+                <p-header>Customer Information</p-header>
+
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* First Name</span><br />
+                        <input name="firstName" required pInputText [(ngModel)]="orderCustomerData.firstName" title="First Name" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Last Name</span><br />
+                        <input name="lastName" required pInputText [(ngModel)]="orderCustomerData.lastName" title="Last Name" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Company Name</span><br />
+                        <input name="companyName" required pInputText [(ngModel)]="orderCustomerData.companyName" title="Company Name" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Email</span><br />
+                        <input name="email" required pInputText [(ngModel)]="orderCustomerData.email" title="Email" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Phone</span><br />
+                        <input name="phone" required pInputText [(ngModel)]="orderCustomerData.phone" title="Phone" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Address</span><br />
+                        <input name="address1" required pInputText [(ngModel)]="orderCustomerData.address1" title="Address" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>Address Line Two</span><br />
+                        <input name="address2" pInputText [(ngModel)]="orderCustomerData.address2" title="Address Line Two" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* City</span><br />
+                        <input name="city" required pInputText [(ngModel)]="orderCustomerData.city" title="City" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* State</span><br />
+                        <input name="state" required pInputText [(ngModel)]="orderCustomerData.state" title="State" type="text" style="width:100%" />
+                    </div>
+                    <div class="p-col">
+                        <span>* Postal Code</span><br />
+                        <input name="postalCode" required pInputText [(ngModel)]="orderCustomerData.postalCode" title="Postal Code" type="text" style="width:100%" />
+                    </div>
+                </div>
+            </p-fieldset>
+
+            <p-fieldset class="p-col-12 p-md-8 p-lg-6">
+                <p-header>Shipping Information</p-header>
+
+                <div class="p-grid">
+                    <div class="p-col">
+                        <p-checkbox name="shippingSame" [(ngModel)]="shippingSameChecked" binary="true" onChange="shippingChecked()"></p-checkbox>
+                        <span>Same as Customer Information</span><br />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span> </span><br />
+                    </div>
+                </div>
+
+                <div *ngIf="!shippingSameChecked">
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* First Name</span><br />
+                            <input name="firstNameShipping" required pInputText [(ngModel)]="orderShipmentData.firstName" title="First Name" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* Last Name</span><br />
+                            <input name="lastNameShipping" required pInputText [(ngModel)]="orderShipmentData.lastName" title="Last Name" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* Company Name</span><br />
+                            <input name="companyNameShipping" required pInputText [(ngModel)]="orderShipmentData.companyName" title="Company Name" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* Phone</span><br />
+                            <input name="phoneShipping" required pInputText [(ngModel)]="orderShipmentData.phone" title="Phone" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* Address</span><br />
+                            <input name="address1Shipping" required pInputText [(ngModel)]="orderShipmentData.address1" title="Address" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>Address Line Two</span><br />
+                            <input name="address2Shipping" pInputText [(ngModel)]="orderShipmentData.address2" title="Address Line Two" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* City</span><br />
+                            <input name="cityShipping" required pInputText [(ngModel)]="orderShipmentData.city" title="City" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col">
+                            <span>* State</span><br />
+                            <input name="stateShipping" required pInputText [(ngModel)]="orderShipmentData.state" title="State" type="text" style="width:100%" />
+                        </div>
+                        <div class="p-col">
+                            <span>* Postal Code</span><br />
+                            <input name="postalCodeShipping" required pInputText [(ngModel)]="orderShipmentData.postalCode" title="Postal Code" type="text" style="width:100%" />
+                        </div>
+                    </div>
+                </div>
+            </p-fieldset>
+
+            <p-fieldset class="p-col-12 p-md-8 p-lg-6">
+                <p-header>Order Details</p-header>
+
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>Product ID</span><br />
+                        <label name="productID" style="width:100%">{{selectedProduct.productID}}</label>
+                    </div>
+                    <div class="p-col">
+                        <span>Name</span><br />
+                        <label name="productID" style="width:100%">{{selectedProduct.name}}</label>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>Order Reference Number</span><br />
+                        <input name="orderReferenceNumber" pInputText [(ngModel)]="orderModel.partnerOrderReference" title="Order Reference Number" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Artwork URL</span><br />
+                        <input name="artworkURL" required pInputText [(ngModel)]="orderItemData.itemFile" title="Artwork URL" type="text" style="width:100%" />
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Quantity</span><br />
+                        <p-spinner name="quantity" required size="30" [(ngModel)]="orderItemData.quantity"
+                                   [min]="selectedProduct.quantityMinimum ? selectedProduct.quantityMinimum : 0"
+                                   [max]="selectedProduct.quantityMaximum ? selectedProduct.quantityMaximum : 999999"
+                                   [step]="selectedProduct.quantityIncrement ? selectedProduct.quantityIncrement : 1"></p-spinner>
+                    </div>
+                </div>
+            </p-fieldset>
+
+            <div class="p-col-12 p-md-8 p-lg-6 p-col-align-center">
+                <div class="p-grid">
+                    <div class="p-col-4"></div>
+                    <div class="p-col-4">
+                        <button *ngIf="!showResult" class="btn btn-primary" role="button" type="submit" ng-disabled="form.$invalid"><span class="fa fa-plus" aria-hidden="true"></span> Place Order</button>
+                        <label *ngIf="showResult" name="resultMessage" style="width:100%">{{resultMessage}}</label>
+                    </div>
+                    <div class="p-col-4"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</p-fieldset>
+
+<div class="p-grid">
+    <div class="p-col-12 p-md-12 p-lg-12">
+        <hr style="width:100%" />
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* First Name</span><br />
+        <input name="firstName" required pInputText [(ngModel)]="orderCustomerData.firstName" title="First Name" type="text" style="width:100%" />
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* Last Name</span><br />
+        <input name="lastName" required pInputText [(ngModel)]="orderCustomerData.lastName" title="Last Name" type="text" style="width:100%" />
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* Company Name</span><br />
+        <input name="companyName" required pInputText [(ngModel)]="orderCustomerData.companyName" title="Company Name" type="text" style="width:100%" />
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* Address</span><br />
+        <input name="address1" required pInputText [(ngModel)]="orderCustomerData.address1" title="Address" type="text" style="width:100%" />
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* Phone</span><br />
+        <input name="lastName" required pInputText [(ngModel)]="orderCustomerData.phone" title="Phone" type="text" style="width:100%" />
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>Address Line Two</span><br />
+        <input name="address2" required pInputText [(ngModel)]="orderCustomerData.address2" title="Address Line Two" type="text" style="width:100%" />
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* Email</span><br />
+        <input name="email" required pInputText [(ngModel)]="orderCustomerData.email" title="Email" type="text" style="width:100%" />
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <span>* City</span><br />
+        <input name="city" required pInputText [(ngModel)]="orderCustomerData.city" title="City" type="text" style="width:100%" />
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-2">
+        <span>* State</span><br />
+        <input name="state" required pInputText [(ngModel)]="orderCustomerData.state" title="State" type="text" style="width:100%" />
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2">
+        <span>* Postal Code</span><br />
+        <input name="postalCode" required pInputText [(ngModel)]="orderCustomerData.postalCode" title="Postal Code" type="text" style="width:100%" />
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-12 p-md-12 p-lg-12">
+        <hr style="width:100%" />
+    </div>
+</div>-->
