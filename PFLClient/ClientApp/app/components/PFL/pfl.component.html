@@ -216,6 +216,14 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="p-grid">
+                    <div class="p-col">
+                        <span>* Shipping Method</span><br />
+                        <p-dropdown name="shippingMethod" required [(ngModel)]="selectedShipping" title="Shipping Method" [options]="availableShipping" optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+
             </p-fieldset>
 
             <p-fieldset class="p-col-12 p-md-8 p-lg-6">

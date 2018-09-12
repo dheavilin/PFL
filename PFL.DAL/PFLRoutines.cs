@@ -12,18 +12,11 @@ namespace PFL.DAL
 {
     public class PFLRoutines
     {
-        private readonly IOptions<APISettings> _APISettings;
-
-        IConfiguration _iconfiguration;
+        private IConfiguration _iconfiguration;
 
         public PFLRoutines(IConfiguration iconfiguration)
         {
             _iconfiguration = iconfiguration;
-        }
-
-        public string GetSomeValues(int id)
-        {
-            return "Heyo! - " + id.ToString();
         }
 
         public Products GetProducts()

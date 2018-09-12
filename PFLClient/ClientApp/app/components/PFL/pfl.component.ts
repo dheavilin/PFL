@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FieldsetModule } from 'primeng/fieldset';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SpinnerModule } from 'primeng/spinner';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { OnInit, Component, Inject } from '@angular/core';
 import { Http, Headers } from '@angular/http';
@@ -31,6 +32,8 @@ export class PFLComponent implements OnInit{
     shippingSameChecked: boolean = false;
     showResult: boolean = false;
     resultMessage: string = "";
+    availableShipping: DropDownValue[] = [];
+    selectedShipping: DropDownValue;
 
     constructor(http: Http) {
         this.httpObj = http;
@@ -58,6 +61,14 @@ export class PFLComponent implements OnInit{
         this.orderCustomerData = new OrderCustomerData();
         this.orderShipmentData = new OrderShipmentData();
         this.orderItemData = new OrderItemData();
+
+        this.availableShipping = [];
+
+        this.availableShipping.push(new DropDownValue("Select", ""));
+
+        if (this.selectedProduct) {
+            this.selectedProduct.deliveredPrices.forEach(price => this.availableShipping.push(new DropDownValue(price.description, price.deliveryMethodCode)));
+        }
 
         this.showOrderDetails = true;
         this.showResult = false;
@@ -170,7 +181,7 @@ export class PFLComponent implements OnInit{
 
         this.orderModel.shipments = [];
         this.orderShipmentData.shipmentSequenceNumber = 1;
-        this.orderShipmentData.shippingMethod = "FDXG";
+        this.orderShipmentData.shippingMethod = this.selectedShipping.code;
 
         this.orderModel.shipments.push(this.orderShipmentData);
 
@@ -188,5 +199,15 @@ export class PFLComponent implements OnInit{
                 },
                 error => console.log(error));
 
+    }
+}
+
+class DropDownValue {
+    name: string;
+    code: string;
+
+    constructor(public Name: string, public Code: string) {
+        this.name = Name;
+        this.code = Code;
     }
 }

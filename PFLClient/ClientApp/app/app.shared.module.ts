@@ -6,9 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
 import { PFLComponent } from './components/PFL/pfl.component';
 
 import { AccordionModule } from 'primeng/primeng';
@@ -22,14 +19,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FieldsetModule } from 'primeng/fieldset';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SpinnerModule } from 'primeng/spinner';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent,
         PFLComponent
     ],
     imports: [
@@ -47,11 +42,9 @@ import { SpinnerModule } from 'primeng/spinner';
         FieldsetModule,
         CheckboxModule,
         SpinnerModule,
+        DropdownModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'pfl', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
             { path: 'pfl', component: PFLComponent },
             { path: '**', redirectTo: 'pfl' }
         ])
