@@ -23,7 +23,6 @@ export class PFLComponent implements OnInit{
     products: ProductModel;
     httpObj: Http;
     selectedProduct: Datum | null;
-    cols: any[];
     showOrderDetails: boolean = false;
     orderModel: OrderModel = new OrderModel();
     orderCustomerData: OrderCustomerData = new OrderCustomerData();
@@ -48,12 +47,6 @@ export class PFLComponent implements OnInit{
     }
 
     ngOnInit() {
-        this.cols = [
-            { field: 'id', header: 'ID' },
-            { field: 'productID', header: 'Product ID' },
-            { field: 'name', header: 'Name' },
-            { field: 'description', header: 'Description' }
-        ];
 
     }
 
@@ -75,65 +68,6 @@ export class PFLComponent implements OnInit{
         this.resultMessage = "";
     }
 
-    sendOrder() {
-        var orderModel: OrderModel = new OrderModel();
-
-        var customer = new OrderCustomerData();
-        customer.firstName = "Doug";
-        customer.lastName = "Heavilin";
-        customer.companyName = "Company";
-        customer.address1 = "address1";
-        customer.city = "Franklin";
-        customer.state = "IN";
-        customer.postalCode = "46131";
-        customer.countryCode = "US";
-        customer.email = "notreal@gmail.com";
-        customer.phone = "1111111111";
-
-        let orderItems: OrderItemData[] = [];
-
-        var orderItem = new OrderItemData();
-        orderItem.itemSequenceNumber = 1;
-        orderItem.productID = 9885;
-        orderItem.quantity = 2000;
-        orderItem.itemFile = "https://drive.google.com/file/d/1O_AoVvKXhm5nuQT1a1ofpcQzNP8Jj9u9/view";
-
-        orderItems.push(orderItem);
-
-        let orderShipments: OrderShipmentData[] = [];
-
-        var orderShipment = new OrderShipmentData();
-        orderShipment.shipmentSequenceNumber = 1;
-        orderShipment.firstName = "Doug";
-        orderShipment.lastName = "Heavilin";
-        orderShipment.companyName = "Company";
-        orderShipment.address1 = "address1";
-        orderShipment.city = "Franklin";
-        orderShipment.state = "IN";
-        orderShipment.postalCode = "46131";
-        orderShipment.countryCode = "US";
-        orderShipment.phone = "1111111111";
-        orderShipment.shippingMethod = "FDXG";
-
-        orderShipments.push(orderShipment);
-
-        orderModel.partnerOrderReference = "44445";
-        orderModel.orderCustomer = customer;
-        orderModel.items = orderItems;
-        orderModel.shipments = orderShipments;
-
-        var requestHeader = new Headers();
-        requestHeader.append('Content-Type', 'application / json');
-
-        this.httpObj.post('http://localhost/PFL.Service/api/PFL/SendOrder', orderModel ? JSON.stringify(orderModel) : null, { headers: requestHeader })
-            .map(res => res.json())
-            .subscribe(
-            result => {
-                this.products = result;
-            },
-            error => console.error(error));
-    }
-
     selectRow() {
         this.showOrderDetails = false;
         this.showResult = false;
@@ -149,7 +83,6 @@ export class PFLComponent implements OnInit{
 
     onSubmit() {
 
-        //this.orderModel.partnerOrderReference = "44444";
         this.orderCustomerData.countryCode = "US";
         this.orderShipmentData.countryCode = "US";
         this.orderModel.orderCustomer = this.orderCustomerData;
