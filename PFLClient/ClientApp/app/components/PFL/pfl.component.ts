@@ -194,7 +194,7 @@ export class PFLComponent implements OnInit{
                 result => {
                     this.orderModel = result.results.data;
 
-                    this.resultMessage = "Your order has been placed successfully.  Your Order Number is #" + this.orderModel.orderNumber;
+                    this.resultMessage = "Your order has been placed successfully.  Your Order Number is " + this.orderModel.orderNumber;
                     this.showResult = true;
                 },
                 error => console.log(error));

@@ -264,12 +264,15 @@
 
             <div class="p-col-12 p-md-8 p-lg-6 p-col-align-center">
                 <div class="p-grid">
-                    <div class="p-col-4"></div>
-                    <div class="p-col-4">
+                    <div class="p-col-4" *ngIf="!showResult"></div>
+                    <div class="p-col-4" *ngIf="!showResult">
                         <button *ngIf="!showResult" class="btn btn-primary" role="button" type="submit" ng-disabled="form.$invalid"><span class="fa fa-plus" aria-hidden="true"></span> Place Order</button>
+                    </div>
+                    <div class="p-col-4" *ngIf="!showResult"></div>
+
+                    <div class="p-col-12" *ngIf="showResult">
                         <label *ngIf="showResult" name="resultMessage" style="width:100%">{{resultMessage}}</label>
                     </div>
-                    <div class="p-col-4"></div>
                 </div>
             </div>
 
