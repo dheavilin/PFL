@@ -1,7 +1,6 @@
 ﻿import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { TableModule } from 'primeng/table';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { InputTextModule } from 'primeng/inputtext';
 import { FieldsetModule } from 'primeng/fieldset';
 import { CheckboxModule } from 'primeng/checkbox';

@@ -13,7 +13,6 @@ import { PanelModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/primeng';
 import { RadioButtonModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
 import { FieldsetModule } from 'primeng/fieldset';
@@ -36,7 +35,6 @@ import { DropdownModule } from 'primeng/dropdown';
         ButtonModule,
         RadioButtonModule,
         TableModule,
-        ProgressSpinnerModule,
         BrowserAnimationsModule,
         InputTextModule,
         FieldsetModule,
