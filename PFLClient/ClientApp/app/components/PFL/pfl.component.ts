@@ -54,6 +54,8 @@ export class PFLComponent implements OnInit{
         this.orderCustomerData = new OrderCustomerData();
         this.orderShipmentData = new OrderShipmentData();
         this.orderItemData = new OrderItemData();
+        this.orderModel.partnerOrderReference = "";
+        this.shippingSameChecked = false;
 
         this.availableShipping = [];
 
@@ -69,12 +71,14 @@ export class PFLComponent implements OnInit{
     }
 
     selectRow() {
+        // Show the product detail panel for the selected product
         this.showOrderDetails = false;
         this.showResult = false;
         this.resultMessage = "";
     }
 
     unselectRow() {
+        // Hide the product detail panel
         this.showOrderDetails = false;
         this.selectedProduct = null;
         this.showResult = false;
@@ -82,7 +86,8 @@ export class PFLComponent implements OnInit{
   }
 
     onSubmit() {
-
+        // Build the full order model based on the input values, and send it off to the ordering API
+        
         this.orderCustomerData.countryCode = "US";
         this.orderShipmentData.countryCode = "US";
         this.orderModel.orderCustomer = this.orderCustomerData;
@@ -127,6 +132,7 @@ export class PFLComponent implements OnInit{
                 result => {
                     this.orderModel = result.results.data;
 
+                    // if we're successful, show the order number to the user
                     this.resultMessage = "Your order has been placed successfully.  Your Order Number is " + this.orderModel.orderNumber;
                     this.showResult = true;
                 },

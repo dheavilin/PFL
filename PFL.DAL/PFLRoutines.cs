@@ -10,6 +10,7 @@ using PFL.DAL.Model;
 
 namespace PFL.DAL
 {
+
     public class PFLRoutines
     {
         private IConfiguration _iconfiguration;
@@ -35,6 +36,7 @@ namespace PFL.DAL
                 }
                 catch
                 {
+                    // In a real world situation, I'd have exception logging
                     throw;
                 }
             }
@@ -46,6 +48,8 @@ namespace PFL.DAL
             {
                 try
                 {
+                    // In a real world situation, I'd log both the orderModel we're sending, and the response we get back
+
                     var serializedOrder = Newtonsoft.Json.JsonConvert.SerializeObject(orderModel);
                     var content = new StringContent(serializedOrder);
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -60,6 +64,7 @@ namespace PFL.DAL
                 }
                 catch
                 {
+                    // In a real world situation, I'd have exception logging
                     throw;
                 }
             }
