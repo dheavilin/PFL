@@ -1,0 +1,138 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "primeng",
+        "scope": null,
+        "escapedName": "primeng",
+        "name": "primeng",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\douglas.heavilin\\documents\\visual studio 2017\\Projects\\PFL"
+    ]
+  ],
+  "_from": "primeng@latest",
+  "_hasShrinkwrap": false,
+  "_id": "primeng@6.1.3",
+  "_inCache": true,
+  "_location": "/primeng",
+  "_nodeVersion": "8.9.4",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/primeng_6.1.3_1535618084487_0.41149946159971296"
+  },
+  "_npmUser": {
+    "name": "cagatay.civici",
+    "email": "cagatay.civici@gmail.com"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "primeng",
+    "scope": null,
+    "escapedName": "primeng",
+    "name": "primeng",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/primeng/-/primeng-6.1.3.tgz",
+  "_shasum": "720590da9e671fd47de15911636d1c0a7a442852",
+  "_shrinkwrap": null,
+  "_spec": "primeng",
+  "_where": "C:\\Users\\douglas.heavilin\\documents\\visual studio 2017\\Projects\\PFL",
+  "bugs": {
+    "url": "https://github.com/primefaces/primeng/issues"
+  },
+  "dependencies": {},
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Join the chat at https://gitter.im/primefaces/primeng](https://badges.gitter.im/primefaces/primeng.svg)](https://gitter.im/primefaces/primeng?ut",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.7.0",
+    "@angular/animations": "^6.1.0",
+    "@angular/cli": "~6.1.1",
+    "@angular/common": "^6.1.0",
+    "@angular/compiler": "^6.1.0",
+    "@angular/compiler-cli": "^6.1.0",
+    "@angular/core": "^6.1.0",
+    "@angular/forms": "^6.1.0",
+    "@angular/http": "^6.1.0",
+    "@angular/language-service": "^6.1.0",
+    "@angular/platform-browser": "^6.1.0",
+    "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/router": "^6.1.0",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "chart.js": "2.7.1",
+    "codelyzer": "~4.2.1",
+    "core-js": "^2.5.4",
+    "del": "2.2.0",
+    "font-awesome": "4.7.0",
+    "fullcalendar": "4.0.0-alpha",
+    "gulp": "^3.9.1",
+    "gulp-concat": "2.6.0",
+    "gulp-flatten": "^0.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "1.0.6",
+    "install": "0.10.1",
+    "intl": "1.2.5",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~1.7.1",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.0",
+    "karma-jasmine": "~1.1.1",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "moment": "2.19.3",
+    "primeicons": "1.0.0-beta.10",
+    "prismjs": "1.6.0",
+    "protractor": "~5.3.0",
+    "quill": "1.1.8",
+    "rxjs": "^6.0.0",
+    "ts-node": "~5.0.1",
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2",
+    "web-animations-js": "2.3.1",
+    "zone.js": "~0.8.26"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-LxpSnVaiEJXRc8g5xw6xQAQaIsKv40zaVwgIk4rbJUh9GFcvhvgsnr357LYealQjeYqUSXDzgmiy/BqatrUbCA==",
+    "shasum": "720590da9e671fd47de15911636d1c0a7a442852",
+    "tarball": "https://registry.npmjs.org/primeng/-/primeng-6.1.3.tgz",
+    "fileCount": 754,
+    "unpackedSize": 5762457,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbh6wlCRA9TVsSAnZWagAAfekP/1YGuDZkS0eo+evbBce2\n2t3n3tdRK4YWVyoyBwCzrRgfF2LXjx5dUPR5VHaGUsTboENnZfw2Q9zFomd8\nh0Y4HhHRczlVcjX4zH8srEuTn3ACnkbFD6LqYpArMl0M/MJC14J2jU3fCvP9\nZVP4unS9UHEMd+Htjj0GQK/3sOo/MRz/Hr5twh/shjheji+B5MMZfdC724VR\nNGL+FXLDZDJueGxVofHruS6Xom0zcZfmnYjPQNdE7de9oE93ya/85S5pePBa\nkz89zr1Qa9LKhMQTuTG/WuuSwwQi0U1FLHMNG+yBxaNhALFHjYD5xixRZCyK\noDKkDgPNNBPt00Yj+xXfysrPxJiCDywAeJNSYWBqbaZpYTnU9ZVrIq8XEzv8\nLRhkUb8RieQcZyrCVVENq1mhFxyht8g7aAs3oZnpUw4lzIz/I6ZC2kiTfYiH\nEGc9HNYXnpVJGbHulVXCFsE/luYJsBELZe20Q6F2LZOMsMI50y2eb2pKs/oJ\ncGxugP0hrVMCKrA9g+zNDR0wdu/0nTGL6nCAzfzowWP7/qLuCXXcdP0TXp+B\n8826RHI919MEnCNHuD7gq7N42gXrw93/2XS5DsogzzrJkZ/yuDdLMONXg3k5\nfq5hFBWykikR6WlahIxfNR/ULlz7GCI41rY+H7cdmMNOnSwfVt0XdKNF0iqT\nKD2k\r\n=Vnx1\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "0be8c33f347d201804d0d5eb1fc943412218bc7d",
+  "homepage": "https://github.com/primefaces/primeng#readme",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "cagatay.civici",
+      "email": "cagatay.civici@gmail.com"
+    }
+  ],
+  "name": "primeng",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primefaces/primeng.git"
+  },
+  "scripts": {
+    "build": "ng build",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "ng test"
+  },
+  "version": "6.1.3"
+}
